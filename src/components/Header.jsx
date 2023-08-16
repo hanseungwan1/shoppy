@@ -22,7 +22,7 @@ export default function Header() {
     navigate("/products");
   }
   return (
-    <header className="bg-slate-600 w-full h-7 sticky top-0 m-auto flex justify-between px-3 py-5 text-white">
+    <header className="bg-slate-600 w-full h-7 sticky top-0 m-auto flex justify-between px-3 py-5 text-white z-10">
       <button
         className="flex items-center cursor-pointer font-bold"
         onClick={goHome}
