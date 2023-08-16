@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/shoppy/static/css/main.b2165f43.css",
+    "main.js": "/shoppy/static/js/main.fad217d6.js",
+    "static/js/787.8bfa6160.chunk.js": "/shoppy/static/js/787.8bfa6160.chunk.js",
+    "index.html": "/shoppy/index.html",
+    "main.b2165f43.css.map": "/shoppy/static/css/main.b2165f43.css.map",
+    "main.fad217d6.js.map": "/shoppy/static/js/main.fad217d6.js.map",
+    "787.8bfa6160.chunk.js.map": "/shoppy/static/js/787.8bfa6160.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b2165f43.css",
+    "static/js/main.fad217d6.js"
+  ]
+}
