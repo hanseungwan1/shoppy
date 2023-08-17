@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getProduct } from "../api/apis";
+import { getListData } from "../api/apis";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductsPage() {
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -11,7 +14,7 @@ export default function ProductsPage() {
   }, []);
 
   function getList() {
-    getProduct()
+    getListData("list")
       .then((res) => {
         const listData = res;
         let arr = [];
@@ -34,8 +37,11 @@ export default function ProductsPage() {
       {list.map((el) => {
         return (
           <div
+            onClick={() => {
+              navigate(`/detail/${el.id}`);
+            }}
             key={el.id}
-            className="rounded-lg shadow-md shadow-gray-400 overflow-hidden"
+            className="rounded-lg shadow-md shadow-gray-400 overflow-hidden cursor-pointer"
           >
             <img className="" src={`img/${el.img}.webp`} alt="" />
             <div className="mb-1 p-1">

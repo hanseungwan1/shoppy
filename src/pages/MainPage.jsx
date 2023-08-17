@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { getProduct } from "../api/apis";
+import { getListData } from "../api/apis";
 
 export default function MainPage() {
   const [loading, setLoading] = useState(false);
@@ -15,7 +15,7 @@ export default function MainPage() {
   }, []);
 
   function getList() {
-    getProduct()
+    getListData("list")
       .then((res) => {
         const listData = res;
         let arr = [];

@@ -27,7 +27,7 @@ export default function Header({ cartList }) {
         className="flex items-center cursor-pointer font-bold"
         onClick={goHome}
       >
-        Shoppy
+        채영몰
       </button>
       <div className="flex items-center gap-4 ">
         <button>

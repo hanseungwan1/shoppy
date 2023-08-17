@@ -10,6 +10,11 @@ export default function AdminPage() {
         alert("모든 내용을 입력하시오.");
         return;
       }
+
+      if (isNaN(parseInt(e.target[4].value))) {
+        alert("가격에는 숫자만 넣으시오.");
+        return;
+      }
     }
     const size = JSON.stringify(e.target[6].value.toUpperCase().split(","));
     const sendData = {

@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../api/firebase";
-import { uid } from "uid";
-import { ref, set } from "firebase/database";
 import { useParams } from "react-router-dom";
-import { getProduct } from "../api/apis";
+import { getListData, setProduct } from "../api/apis";
 
-export default function DetailPage() {
+export default function DetailPage({ cartList, setCartList }) {
   const [itemInfo, setItemInfo] = useState({ size: [] });
   const [loading, setLoading] = useState(false);
   const [size, setSize] = useState("S");
@@ -15,7 +12,7 @@ export default function DetailPage() {
     setLoading(true);
 
     async function getDataHandler() {
-      return getProduct(param.id)
+      return getListData("list", param.id)
         .then((res) => {
           res.size = JSON.parse(res.size);
           setItemInfo(res);
@@ -31,11 +28,17 @@ export default function DetailPage() {
     getDataHandler();
   }, [param]);
 
-  function clickHandler(e) {
-    const id = uid();
-    set(ref(db, "cart/" + id), {
-      id,
+  function clickHandler() {
+    const sendData = {
+      id: param.id,
+      count: 1,
+      img: itemInfo.img,
+      name: itemInfo.name,
+      price: itemInfo.price,
       size,
+    };
+    setProduct("cart", sendData).then(() => {
+      setCartList([...cartList, sendData]);
     });
   }
 
