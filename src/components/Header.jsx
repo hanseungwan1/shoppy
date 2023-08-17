@@ -3,7 +3,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ cartList }) {
   const navigate = useNavigate();
 
   function goHome() {
@@ -35,10 +35,17 @@ export default function Header() {
             Products
           </h3>
         </button>
-        <AiOutlineShoppingCart className="cursor-pointer" onClick={goCart} />
+        <div className="relative cursor-pointer" onClick={goCart}>
+          <AiOutlineShoppingCart />
+          {cartList.length ? (
+            <div className="absolute bg-red-500 text-white rounded-full w-4 h-4 flex justify-center items-center left-2 top-2">
+              <p className="text-xs">{cartList.length}</p>
+            </div>
+          ) : null}
+        </div>
         <BsPencil className="cursor-pointer" onClick={goAdmin} />
         <img
-          src="img/KakaoTalk_20230730_231838535.jpg"
+          src="/img/KakaoTalk_20230730_231838535.jpg"
           alt="profile_img"
           className="w-5 h-5 rounded-full cursor-pointer"
         />
